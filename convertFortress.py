@@ -16,7 +16,7 @@ with open(sys.argv[1]) as csv_file:
     os.mkdir('parsed')
   with open('parsed/' + 'parsed-' + sys.argv[1], "w", newline='') as csv_out:
     
-    headers = ['tournament', 'format', 'date', 'playerName', 'score', 'sos', 'swissRank', 'cutRank', 'points', 'faction', 'listID', 'id', 'ship', 'talent1', 
+    headers = ['tournament', 'format', 'date', 'playerName', 'score', 'sos', 'mov', 'swissRank', 'cutRank', 'points', 'faction', 'listID', 'id', 'ship', 'talent1', 
     'talent2', 'force1', 'sensor1', 'tech1', 'tech2', 'cannon1', 'turret1', 'torpedo1', 'torpedo2', 'missile1', 'missile2', 'crew1', 'crew2', 'crew3', 
     'gunner1', 'gunner2', 'astromech1', 'illicit1', 'illicit2', 'device1', 'device2', 'title1', 'configuration1', 'modification1', 'modification2', 'modification3']
     
@@ -32,7 +32,8 @@ with open(sys.argv[1]) as csv_file:
       playerName = row[4]
       listID += 1
       xwsSquad = row[5]
-      score = row[7]
+      score = row[6]
+      mov = row[7]
       sos = row[8]
       swissRank = row[9]
       cutRank = row[10]
@@ -171,6 +172,7 @@ with open(sys.argv[1]) as csv_file:
           'date' : date,
           'playerName' : playerName,
           'score' : score,
+          'mov' : mov,
           'sos' : sos,
           'swissRank' : swissRank,
           'cutRank' : cutRank,
