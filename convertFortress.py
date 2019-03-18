@@ -60,7 +60,7 @@ with open(sys.argv[1]) as csv_file:
               talent2= talent[1]
 
           force1 = ''
-          force = upgrades.get('force', '')
+          force = upgrades.get('force-power', '')
           if(force):
             force1 = force[0]
 
