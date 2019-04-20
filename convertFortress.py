@@ -14,7 +14,7 @@ with open(sys.argv[1]) as csv_file:
   next(csv_reader)
   if not os.path.exists('parsed'):
     os.mkdir('parsed')
-  with open('parsed/' + 'parsed-' + sys.argv[1], "w", newline='') as csv_out:
+  with open('parsed/' + 'parsed-' + sys.argv[1], "w") as csv_out:
     
     headers = ['tournament', 'format', 'date', 'playerName', 'score', 'sos', 'mov', 'swissRank', 'cutRank', 'points', 'faction', 'listID', 'id', 'ship', 'talent1', 
     'talent2', 'force1', 'sensor1', 'tech1', 'tech2', 'cannon1', 'turret1', 'torpedo1', 'torpedo2', 'missile1', 'missile2', 'crew1', 'crew2', 'crew3', 
@@ -159,7 +159,7 @@ with open(sys.argv[1]) as csv_file:
           modification1 = ''
           modification2 = ''
           modification3 = ''
-          modification = upgrades.get('mod', '')
+          modification = upgrades.get('modification', '')
           if(modification):
             modification1 = modification[0]
             if(len(modification) > 1):
