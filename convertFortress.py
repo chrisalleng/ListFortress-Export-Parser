@@ -18,7 +18,7 @@ with open(sys.argv[1]) as csv_file:
     
     headers = ['tournament', 'format', 'date', 'playerName', 'score', 'sos', 'mov', 'swissRank', 'cutRank', 'points', 'faction', 'listID', 'id', 'ship', 'talent1', 
     'talent2', 'force1', 'sensor1', 'tech1', 'tech2', 'cannon1', 'turret1', 'torpedo1', 'torpedo2', 'missile1', 'missile2', 'crew1', 'crew2', 'crew3', 
-    'gunner1', 'gunner2', 'astromech1', 'illicit1', 'illicit2', 'device1', 'device2', 'title1', 'configuration1', 'modification1', 'modification2', 'modification3']
+    'gunner1', 'gunner2', 'astromech1', 'illicit1', 'illicit2', 'device1', 'device2', 'title1', 'configuration1', 'modification1', 'modification2', 'modification3','tactical-relay']
     
     csvwriter = csv.DictWriter(csv_out, fieldnames=headers)
     csvwriter.writeheader()
@@ -154,8 +154,16 @@ with open(sys.argv[1]) as csv_file:
           configuration = upgrades.get('configuration', '')
           if(configuration):
             configuration1 = configuration[0]
-          
-          
+
+          relay1 = ''
+          relay = upgrades.get('tactical-relay', '')
+          relaynodash = upgrades.get('tacticalrelay', '')
+          if(relay):
+            relay1 = relay[0] 
+          if(relaynodash):
+            relay1 = relaynodash[0]
+
+
           modification1 = ''
           modification2 = ''
           modification3 = ''
@@ -207,4 +215,5 @@ with open(sys.argv[1]) as csv_file:
           'configuration1' : configuration1,
           'modification1' : modification1,
           'modification2' : modification2,
-          'modification3' : modification3})
+          'modification3' : modification3,
+          'tactical-relay' : relay1})
